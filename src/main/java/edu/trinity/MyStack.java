@@ -34,4 +34,8 @@ public class MyStack<T> {
     public boolean isEmpty() {
         return (top < 0);
     }
+
+    public int getSize() {
+        return (top + 1);
+    }
 }
