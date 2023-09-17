@@ -3,39 +3,49 @@ package edu.trinity;
 import java.time.Year;
 
 public class Car {
+    private String make;
+    private String model;
+    private Year year;
+    private boolean running;
+    private int distance;
 
     public Car(String make, String model, Year year) {
-
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.running = false;
     }
 
     public String getMake() {
-        return null;
+        return make;
     }
 
     public String getModel() {
-        return null;
+        return model;
     }
 
     public Year getYear() {
-        return null;
+        return year;
     }
 
     public boolean isRunning() {
-        return false;
+        return running;
     }
 
     public void start() {
+        running = true;
 
     }
 
     public void stop() {
-
+        running = false;
     }
 
     public void drive(int distance) {
+        if(running) this.distance += distance;
     }
 
     public int getMiles() {
-        return 0;
+        return distance;
     }
 }
