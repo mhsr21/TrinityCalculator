@@ -9,30 +9,29 @@ public class RPNCalculator {
         for(int i = 0; i < tokens.length; i++) {
             if (isDouble(tokens[i])) stack.push(Double.parseDouble(tokens[i]));
             else {
-                switch(tokens[i]) {
-                    case "+":
+                switch (tokens[i]) {
+                    case "+" -> {
                         temp = stack.pop();
                         temp = stack.pop() + temp;
                         stack.push(temp);
-                        break;
-                    case "-":
+                    }
+                    case "-" -> {
                         temp = stack.pop();
                         temp = stack.pop() - temp;
                         stack.push(temp);
-                        break;
-                    case "*":
+                    }
+                    case "*" -> {
                         temp = stack.pop();
                         temp = stack.pop() * temp;
                         stack.push(temp);
-                        break;
-                    case "/":
+                    }
+                    case "/" -> {
                         if (stack.peek() == 0) throw new IllegalArgumentException();
                         temp = stack.pop();
                         temp = stack.pop() / temp;
                         stack.push(temp);
-                        break;
-                    default:
-                        throw new IllegalArgumentException();
+                    }
+                    default -> throw new IllegalArgumentException();
                 }
             }
         }
